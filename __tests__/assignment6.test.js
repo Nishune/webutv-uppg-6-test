@@ -1,15 +1,17 @@
-//define our function
+//Import function from assignment.js
+const { convertToUpperCase } = require("../assignment");
+//Our test case about "converToUpperCase"-function.
+describe("convertToUpperCase function", () => {
+  //test defines our testcase.
+  test("converts text to uppercase", () => {
+    //The input text to be converted to uppercase
+    const input = "Hello, this text should be in uppercase!";
+    //The expected output from our text-input.
+    const expectedOutput = "HELLO, THIS TEXT SHOULD BE IN UPPERCASE!";
+    //Stores our testresult
+    const result = convertToUpperCase(input);
 
-function toUpperCase(text) {
-    const result = text.toUpperCase();
-    console.log(result);
-    return result;
-}
-//Our test case
-test('toUpperCase changes text to uppercase', () => {
-    console.log = jest.fn();
-//runs the function with 'hello' and expects 'HELLO' as output.
-    expect(toUpperCase('hello')).toBe('HELLO');
-//Checks in console.log has been called with 'HELLO'
-    expect(console.log).toHaveBeenCalledWith('HELLO');
-})
+    //Using jest expect function to compare our result with our expected result.
+    expect(result).toBe(expectedOutput);
+  });
+});
